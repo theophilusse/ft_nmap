@@ -149,18 +149,18 @@ int parse_opts(t_opts *opts, int ac, char **av)
     file = NULL;
     memset(opts, 0, sizeof(t_opts));
 
-    while ((c = getopt_long(ac, av, "", long_opts, &opt_index)) != -1)
+    while ((c = getopt_long(ac, av, "vhif:p:t:s:dzb:e", long_opts, &opt_index)) != -1)
     {
         if (c == 'h')       { print_usage(); return (1); }
         else if (c == 'v')  opts->verbose = 1;
         else if (c == 'i')  ip = optarg;
         else if (c == 'f')  { if (parse_file(opts, optarg) < 0) return (-1); file = optarg; }
         else if (c == 'p')  { if (parse_ports(opts, optarg) < 0) return (-1); }
-        else if (c == 's')  opts->speedup = atoi(optarg);
-        else if (c == 'S')  { if (parse_scan(opts, optarg) < 0) return (-1); }
+        else if (c == 't')  opts->speedup = atoi(optarg);
+        else if (c == 's')  { if (parse_scan(opts, optarg) < 0) return (-1); }
         else if (c == 'd')  opts->dns = 1;
-        else if (c == 'o')  opts->os = 1;
-        else if (c == 'D')
+        else if (c == 'z')  opts->os = 1;
+        else if (c == 'b')
         {
             struct sockaddr_in *sin = (struct sockaddr_in *)&opts->decoy;
             sin->sin_family = AF_INET;
@@ -170,7 +170,7 @@ int parse_opts(t_opts *opts, int ac, char **av)
                 return (-1);
             }
         }
-        else if (c == 'I')  opts->ids_evasion = 1;
+        else if (c == 'e')  opts->ids_evasion = 1;
         else                { fprintf(stderr, "ft_nmap: unknown option\n"); return (-1); }
     }
 
@@ -206,5 +206,7 @@ int parse_opts(t_opts *opts, int ac, char **av)
         fprintf(stderr, "ft_nmap: speedup must be between 0 and 250\n");
         return (-1);
     }
+    else if (opts->speedup == 0)
+	    opts->speedup = 1;
     return (0);
 }

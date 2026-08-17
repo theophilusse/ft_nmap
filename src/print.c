@@ -99,7 +99,7 @@ void    print_scan_config(uint32_t dst_ip)
         if (g_opts.scans & (1 << s))
             printf("%s ", scan_type_to_str(1 << s));
     }
-    printf("\nNo of threads       : %d\n\n", g_opts.speedup);
+    printf("\nNo of threads       : %d\n\n", g_opts.speedup ? g_opts.speedup : 1);
     printf("Scanning..\n");
 }
 
