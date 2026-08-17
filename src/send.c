@@ -8,7 +8,6 @@ int send_packet(uint8_t *buf, int len, uint32_t dst, int protocol)
     struct sockaddr_in  target;
     int                 sock;
     int                 one;
-    t_udp               *udp;
 
     memset(&target, 0, sizeof(target));
     target.sin_family      = AF_INET;

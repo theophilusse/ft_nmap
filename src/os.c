@@ -22,7 +22,7 @@ const char  *detect_os(t_os_info *os)
             return ("Windows XP/2003");
         return ("Windows");
     }
-    if (os->ttl <= 255)
+    else //if (os->ttl <= 255)
     {
         if (os->window == 65535)
             return ("macOS/FreeBSD");

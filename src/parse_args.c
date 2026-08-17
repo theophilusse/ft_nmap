@@ -1,5 +1,21 @@
 #include "ft_nmap.h"
 
+static struct option long_opts[] = {
+    { "verbose", no_argument, 0, 'v' },
+    { "help",        no_argument,       0, 'h' },
+    { "ip",          required_argument, 0, 'i' },
+    { "file",        required_argument, 0, 'f' },
+    { "ports",       required_argument, 0, 'p' },
+    { "speedup",     required_argument, 0, 's' },
+    { "scan",        required_argument, 0, 'S' },
+    // Bonus
+    { "dns",         no_argument,       0, 'd' },
+    { "os",          no_argument,       0, 'o' },
+    { "decoy",       required_argument, 0, 'D' },
+    { "ids-evasion", no_argument,       0, 'I' },
+    { 0, 0, 0, 0 }
+};
+
 static int  parse_scan(t_opts *opts, char *arg)
 {
     char    *token;

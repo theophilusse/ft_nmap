@@ -65,8 +65,7 @@ pcap_t  *open_capture(uint32_t dst_ip, uint16_t dst_port, int scan_type)
     bpf_u_int32         mask;
     bpf_u_int32         net;
 
-    if (dst_port)
-        ;
+    (void)(dst_port);
     handle = pcap_open_live(g_opts.iface_name, 65535, 1, 100, errbuf);
     if (!handle)
     {
