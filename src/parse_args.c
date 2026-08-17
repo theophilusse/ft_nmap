@@ -6,13 +6,13 @@ static struct option long_opts[] = {
     { "ip",          required_argument, 0, 'i' },
     { "file",        required_argument, 0, 'f' },
     { "ports",       required_argument, 0, 'p' },
-    { "speedup",     required_argument, 0, 's' },
-    { "scan",        required_argument, 0, 'S' },
+    { "speedup",     required_argument, 0, 't' },
+    { "scan",        required_argument, 0, 's' },
     // Bonus
     { "dns",         no_argument,       0, 'd' },
-    { "os",          no_argument,       0, 'o' },
-    { "decoy",       required_argument, 0, 'D' },
-    { "ids-evasion", no_argument,       0, 'I' },
+    { "os",          no_argument,       0, 'z' },
+    { "decoy",       required_argument, 0, 'b' },
+    { "ids-evasion", no_argument,       0, 'e' },
     { 0, 0, 0, 0 }
 };
 
