@@ -149,7 +149,7 @@ int parse_opts(t_opts *opts, int ac, char **av)
     file = NULL;
     memset(opts, 0, sizeof(t_opts));
 
-    while ((c = getopt_long(ac, av, "vhif:p:t:s:dzb:e", long_opts, &opt_index)) != -1)
+    while ((c = getopt_long(ac, av, "vhi:f:p:t:s:dzb:e", long_opts, &opt_index)) != -1)
     {
         if (c == 'h')       { print_usage(); return (1); }
         else if (c == 'v')  opts->verbose = 1;
