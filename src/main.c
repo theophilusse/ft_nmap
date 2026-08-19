@@ -73,6 +73,7 @@ int main(int ac, char **av)
         fprintf(stderr, "ft_nmap: must be run as root\n");
         return (1);
     }
+    srand(time(NULL));
     memset(&g_opts, 0, sizeof(g_opts));
     if (parse_opts(&g_opts, ac, av) < 0)
         return (1);

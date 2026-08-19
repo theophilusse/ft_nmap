@@ -37,6 +37,7 @@ int send_packet(uint8_t *buf, int len, uint32_t dst, int protocol)
         return (-1);
     }
 #else
+    t_udp *udp;
     one = 0;
     if (one)
         one++;
